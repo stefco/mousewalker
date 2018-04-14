@@ -46,7 +46,7 @@ function MouseEvaluate(handles, DataFileName)
 % determine inputFolderName for indexing files with reference to the experiment
   ind = find(p.inputFolderName == '\' | p.inputFolderName == '/');
   % make sure the last element is considered '/' or '\'
-    if ind(end) == length(p.inputFolderName)
+    if length(ind) ~= 0 && ind(end) == length(p.inputFolderName)
       ExperimentName = p.inputFolderName(ind(end-1)+1:ind(end)-1);
     else
       ExperimentName = p.inputFolderName(ind(end)+1:length(p.inputFolderName));

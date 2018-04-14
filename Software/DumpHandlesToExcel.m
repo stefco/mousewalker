@@ -13,6 +13,17 @@ function DumpHandlesToExcel(resultsFileName)
 handles = load(resultsFileName);
 
 [outputFolderName, name, ext] = fileparts(resultsFileName);
+% check whether the file is in the current folder, in which case
+% outputFolderName will be a 0x0 empty logical array.
+if length(outputFolderName) == 0
+    outputFolderName = pwd();
+else
+    oldDir = pwd();
+    cd(outputFolderName);
+    outputFolderName = pwd();
+    cd(oldDir);
+end
+resultsFileName = fullfile(outputFolderName, [name ext]);
 [inputFolderName, name, ext] = fileparts(outputFolderName);
 imageFolderName = fullfile(outputFolderName, 'Images');
 
