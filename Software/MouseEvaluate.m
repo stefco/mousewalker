@@ -56,7 +56,7 @@ function MouseEvaluate(handles, DataFileName)
   ColorLF = [ 32 178 170]/255;
   ColorLH = [  0   0 205]/255;
   ColorRF = [255  69   0]/255;
-  ColorRH = [34  139  34]/255;
+  ColorRH = [ 34 139  34]/255;
   RGB     = [ColorLF; ColorLH; ColorRF; ColorRH];
 
 % determine which mouse is not completely erased, and make sure to only analyze those
