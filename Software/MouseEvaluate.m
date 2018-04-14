@@ -26,15 +26,15 @@ function MouseEvaluate(handles, DataFileName)
   end;
 
 % if this is a MAC then xlswrite will have to work differently
-  if ismac
+  % if ismac
     % allow mac-compatible xlswrite
-      addpath('./Software/XLWRITE');
+      % addpath('./Software/XLWRITE');
     % initialize Java
-      javaaddpath('jxl.jar');
-      javaaddpath('MXL.jar');
-      import mymxl.*;
-      import jxl.*; 
-  end;
+      % javaaddpath('jxl.jar');
+      % javaaddpath('MXL.jar');
+      % import mymxl.*;
+      % import jxl.*; 
+  % end;
   
 % make sure new parameters are no problem for older analyses
   if ~isfield(p,'FixedBodyLength'), p.FixedBodyLength = -1; end; 
