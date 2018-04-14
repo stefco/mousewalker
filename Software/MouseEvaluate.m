@@ -4137,10 +4137,5 @@ function plot_BODY_ACCELERATION(time, BodyAcceleration, Xlim, p)
 return;
 
 function WriteExcel(ExcelFileName, Data, SheetName)
-% like xlswrite, but adopt to mac if necessary
-  if ismac
-    xlwrite(ExcelFileName, Data, SheetName);
-  else
     xlswrite(ExcelFileName, Data, SheetName);
-  end;
 return;
