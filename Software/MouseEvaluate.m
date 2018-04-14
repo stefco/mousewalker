@@ -4,7 +4,7 @@ function MouseEvaluate(handles, DataFileName)
 %
 % Evaluate, save and plot results obtained from mouse.
 %
-% (c) Imre Bartos 2013
+% (c) Imre Bartos 2013; Stefan Countryman, Nina Moiseiwitsch 2018
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % parameter to turn plot on or off for the purposes of testing (1-on; 0-off)
