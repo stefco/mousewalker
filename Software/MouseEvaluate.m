@@ -26,15 +26,17 @@ function MouseEvaluate(handles, DataFileName)
   end;
 
 % if this is a MAC then xlswrite will have to work differently
-  % if ismac
+  if ismac
     % allow mac-compatible xlswrite
-      % addpath('./Software/XLWRITE');
+      addpath('./Software/XLWRITE');
     % initialize Java
-      % javaaddpath('jxl.jar');
-      % javaaddpath('MXL.jar');
-      % import mymxl.*;
-      % import jxl.*; 
-  % end;
+      javaaddpath('./Software/XLWRITE/poi_library/poi-3.8-20120326.jar');
+      javaaddpath('./Software/XLWRITE/poi_library/poi-ooxml-3.8-20120326.jar');
+      javaaddpath('./Software/XLWRITE/poi_library/poi-ooxml-schemas-3.8-20120326.jar');
+      javaaddpath('./Software/XLWRITE/poi_library/xmlbeans-2.3.0.jar');
+      javaaddpath('./Software/XLWRITE/poi_library/dom4j-1.6.1.jar');
+      javaaddpath('./Software/XLWRITE/poi_library/stax-api-1.0.1.jar');
+  end;
   
 % make sure new parameters are no problem for older analyses
   if ~isfield(p,'FixedBodyLength'), p.FixedBodyLength = -1; end; 
@@ -1612,7 +1614,8 @@ if EXCEL == 1
   for i = MouseArray % loop over mice
     
     % excel file name for this mouse
-      ExcelFileName = [OutputMouseFoldername{i} 'MouseTrackExcel_' ExperimentName '_' num2str(i) '.xls'];
+      ExcelFileName = [OutputMouseFoldername{i} 'MouseTrackExcel_' ...
+                       ExperimentName '_' num2str(i) '.xlsx'];
     
     % 1.INFORMATION SHEET =================================================
       disp('   1. Info Sheet')
@@ -4137,5 +4140,9 @@ function plot_BODY_ACCELERATION(time, BodyAcceleration, Xlim, p)
 return;
 
 function WriteExcel(ExcelFileName, Data, SheetName)
-    xlswrite(ExcelFileName, Data, SheetName);
+    if ismac
+        xlwrite(ExcelFileName, Data, SheetName);
+    else
+        xlswrite(ExcelFileName, Data, SheetName);
+    end
 return;
